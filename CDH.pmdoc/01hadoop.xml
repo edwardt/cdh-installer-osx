@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<pkgref spec="1.12" uuid="38D7A89D-0E22-4B8A-93EC-15B0B1A92E0E">
+  <config>
+    <identifier>org.apache.hadoop</identifier>
+    <version>0.20.2+737</version>
+    <description/>
+    <post-install type="none"/>
+    <requireAuthorization/>
+    <installFrom relative="true" mod="true">dist/Hadoop</installFrom>
+    <installTo mod="true">/</installTo>
+    <flags>
+      <followSymbolicLinks/>
+    </flags>
+    <packageStore type="internal"/>
+    <mod>scripts.preinstall.path</mod>
+    <mod>scripts.scriptsDirectoryPath.isRelativeType</mod>
+    <mod>installTo</mod>
+    <mod>scripts.postinstall.path</mod>
+    <mod>includeRoot</mod>
+    <mod>installFrom.isRelativeType</mod>
+    <mod>installTo.isAbsoluteType</mod>
+    <mod>version</mod>
+    <mod>parent</mod>
+    <mod>scripts.scriptsDirectoryPath.path</mod>
+    <mod>scripts.preinstall.isRelativeType</mod>
+    <mod>identifier</mod>
+    <mod>installFrom.path</mod>
+    <mod>installTo.path</mod>
+  </config>
+  <scripts>
+    <preinstall relative="true" mod="true">scripts/Hadoop/preflight</preinstall>
+    <postinstall relative="true" mod="true">scripts/Hadoop/postflight</postinstall>
+    <scripts-dir relative="true" mod="true">scripts</scripts-dir>
+  </scripts>
+  <contents>
+    <file-list>01hadoop-contents.xml</file-list>
+    <filter>/CVS$</filter>
+    <filter>/\.svn$</filter>
+    <filter>/\.cvsignore$</filter>
+    <filter>/\.cvspass$</filter>
+    <filter>/\.DS_Store$</filter>
+  </contents>
+</pkgref>

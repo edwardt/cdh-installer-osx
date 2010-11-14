@@ -1,0 +1,15 @@
+#! /bin/sh
+
+if /usr/bin/dscl . -list /Users | /usr/bin/grep hadoop > /dev/null 2>&1; then
+    echo "User hadoop already exists, not creating."
+    exit 0
+else
+    echo "Creating user hadoop."
+    let max=`sudo dscl . -list /Users UniqueID | awk '{ print $2 }' | sort -n | tail -1`
+    let next=$max+1
+    dscl . -create /Users/hadoop
+    dscl . -create /Users/hadoop NFSHomeDirectory /Library/Cloudera
+    dscl . -create /Users/hadoop PrimaryGroupID 1
+    dscl . -create /Users/hadoop UniqueID $next
+fi
+

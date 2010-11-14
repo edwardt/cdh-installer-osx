@@ -1,0 +1,4 @@
+#! /bin/sh
+
+launchctl load /Library/LaunchDaemons/org.apache.hadoop.*
+

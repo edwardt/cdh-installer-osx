@@ -1,0 +1,4 @@
+Cloudera Distribution for Hadoop 3.pkg
+dist/Hadoop/Library/Cloudera/hadoop*
+dist/Pig/Library/Cloudera/pig*
+dist/ZooKeeper/Library/Cloudera/zookeeper*

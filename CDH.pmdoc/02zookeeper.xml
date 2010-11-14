@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<pkgref spec="1.12" uuid="0DE5E828-EC8C-4779-86AD-94CFD2448B0B">
+  <config>
+    <identifier>org.apache.zookeeper</identifier>
+    <version>3.3.1+10</version>
+    <description/>
+    <post-install type="none"/>
+    <requireAuthorization/>
+    <installFrom relative="true" mod="true">dist/ZooKeeper</installFrom>
+    <installTo mod="true">/</installTo>
+    <flags>
+      <followSymbolicLinks/>
+    </flags>
+    <packageStore type="internal"/>
+    <mod>parent</mod>
+    <mod>installTo</mod>
+    <mod>scripts.scriptsDirectoryPath.path</mod>
+    <mod>installFrom.path</mod>
+    <mod>scripts.preinstall.path</mod>
+    <mod>identifier</mod>
+    <mod>scripts.postinstall.path</mod>
+    <mod>includeRoot</mod>
+    <mod>version</mod>
+    <mod>installFrom.isRelativeType</mod>
+    <mod>installTo.path</mod>
+  </config>
+  <scripts>
+    <preinstall relative="true" mod="true">scripts/ZooKeeper/preflight</preinstall>
+    <scripts-dir relative="true" mod="true">scripts</scripts-dir>
+  </scripts>
+  <contents>
+    <file-list>02zookeeper-contents.xml</file-list>
+    <filter>/CVS$</filter>
+    <filter>/\.svn$</filter>
+    <filter>/\.cvsignore$</filter>
+    <filter>/\.cvspass$</filter>
+    <filter>/\.DS_Store$</filter>
+  </contents>
+</pkgref>
