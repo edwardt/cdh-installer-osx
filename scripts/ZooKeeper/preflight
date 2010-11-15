@@ -1,16 +1,19 @@
 #! /bin/sh
 
-if /usr/bin/dscl . -list /Users | /usr/bin/grep hadoop > /dev/null 2>&1; then
-    echo "User hadoop already exists, not creating."
+set USERNAME=zookeeper
+set HOMEDIR=/Library/Cloudera/ZooKeeper
+
+if /usr/bin/dscl . -list /Users | /usr/bin/grep $USERNAME > /dev/null 2>&1; then
+    echo "User $USERNAME already exists, not creating."
     exit 0
 else
-    echo "Creating user hadoop."
+    echo "Creating user $USERNAME."
     let max=`sudo dscl . -list /Users UniqueID | awk '{ print $2 }' | sort -n | tail -1`
     let next=$max+1
-    dscl . -create /Users/hadoop
-    dscl . -create /Users/hadoop NFSHomeDirectory /Library/Cloudera
-    dscl . -create /Users/hadoop PrimaryGroupID 1
-    dscl . -create /Users/hadoop UniqueID $next
+    dscl . -create /Users/$USERNAME
+    dscl . -create /Users/$USERNAME NFSHomeDirectory $HOMEDIR
+    dscl . -create /Users/$USERNAME PrimaryGroupID 1
+    dscl . -create /Users/$USERNAME UniqueID $next
 fi
 
 for file in `find /Library/LaunchDaemons -name org.apache.zookeeper.\* -print`
